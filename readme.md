@@ -37,7 +37,6 @@ See also [QuickFIX/J Orchestra](https://github.com/quickfix-j/quickfixj-orchestr
   * have legacy customisations using QuickFIX dictionaries and want to defer customising using FIX Orchestra
 
 ## Project structure
-\-custom-application-and-session-messages : builds custom Application and FIXT1.1 Session using FIX Orchestra classes and packages in a single jar. __NOT__ the recommeded approach, just an example
 
 \-custom-application-messages : builds custom Application classes using FIX Orchestra.
 

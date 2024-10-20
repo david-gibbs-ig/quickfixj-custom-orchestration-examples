@@ -114,7 +114,6 @@
     </dependencyManagement>
 
     <modules>
-        <!-- module>custom-application-and-session-messages</module -->
         <module>custom-application-messages</module>
         <!-- module>custom-legacy-codegen-application-messages</module -->
         <module>custom-applications</module>
