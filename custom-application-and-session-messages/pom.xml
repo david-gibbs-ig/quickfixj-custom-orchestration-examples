@@ -20,11 +20,6 @@
             <artifactId>quickfixj-base</artifactId>
             <version>${quickfixj.version}</version>
         </dependency>
-<!--        <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <scope>test</scope>
-        </dependency>-->
     </dependencies>
     <profiles>
     </profiles>

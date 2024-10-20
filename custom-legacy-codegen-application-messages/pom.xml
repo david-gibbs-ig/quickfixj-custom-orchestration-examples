@@ -7,18 +7,18 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>application-messages</artifactId>
+    <artifactId>legacy-codegen-application-messages</artifactId>
     <packaging>jar</packaging>
 
-    <name>QuickFIX/J custom application messages</name>
-    <description>Example build of custom FIX application messages</description>
+    <name>QuickFIX/J custom legacy codegen application messages</name>
+    <description>Example build of custom FIX application messages using legacy codegen</description>
     <url>http://www.quickfixj.org</url>
 
+    <properties>
+        <generator.decimal>true</generator.decimal>
+    </properties>
+
     <dependencies>
-        <dependency>
-            <groupId>io.fixprotocol.orchestrations</groupId>
-            <artifactId>fix-standard</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.quickfixj</groupId>
             <artifactId>quickfixj-base</artifactId>
@@ -31,65 +31,23 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>xml-maven-plugin</artifactId>
+                <groupId>org.quickfixj</groupId>
+                <artifactId>quickfixj-codegenerator</artifactId>
+                <version>${quickfixj.version}</version>
                 <executions>
                     <execution>
-                        <id>cleanOrchestraRepo</id>
-                        <phase>initialize</phase>
+                        <id>fix50sp2</id>
                         <goals>
-                            <goal>transform</goal>
+                            <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <transformationSets>
-                                <transformationSet>
-                                    <dir>../src/main/resources</dir>
-                                    <outputDir>${project.build.directory}/generated-resources</outputDir>
-                                    <includes>
-                                        <include>${orchestra.file}</include>
-                                    </includes>
-                                    <stylesheet>${project.basedir}/src/main/xsl/extractSessionLayer.xsl</stylesheet>
-                                </transformationSet>
-                            </transformationSets>
+                            <dictFile>${project.basedir}/src/main/resources/FIX50SP2.modified.xml</dictFile>
+                            <packaging>quickfix.fix50sp2</packaging>
+                            <fieldPackage>quickfix.field</fieldPackage>
+                            <decimal>${generator.decimal}</decimal>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.quickfixj.orchestra</groupId>
-                <artifactId>quickfixj-from-fix-orchestra-code-generator-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>codeGeneration</goal>
-                        </goals>
-                        <id>fixLatest</id>
-                    </execution>
-                </executions>
-                <configuration>
-                    <orchestration>${project.build.directory}/generated-resources/${orchestra.file}</orchestration>
-                    <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
-                    <excludeSession>true</excludeSession>
-                    <generateFixt11Package>false</generateFixt11Package>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.quickfixj.orchestra</groupId>
-                <artifactId>quickfixj-from-fix-orchestra-dictionary-generator-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>dictionaryGeneration</goal>
-                        </goals>
-                        <id>fixLatest</id>
-                    </execution>
-                </executions>
-                <configuration>
-                    <orchestration>${project.build.directory}/generated-resources/${orchestra.file}</orchestration>
-                    <outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
