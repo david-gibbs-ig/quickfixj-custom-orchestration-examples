@@ -24,6 +24,35 @@ The more complete documents for customising QuickFIX/J are available on the
 
 See also [QuickFIX/J Orchestra](https://github.com/quickfix-j/quickfixj-orchestra).
 
+## Recommended Approaches to customisation
+
+* Build custom packages only for the required FIX protocol versions 
+
+   For example build only FIX50SP2 or FIXlatest. You can build more than one of course, but only maintain what you need.
+* Regard FIXT11 as a responsibility of the QuickFIX/J project
+  
+   Unless you need to customise FXIT11, use the artifacts from the QuickFIX/J project
+* Consider building using the legacy (original) code generator if you don't want the FIXlatest protocol version and:
+  * have legacy code using older versions of QuickFIX/J and want to benefit from QuickFIX/J 3.0.0 while minimising code changes 
+  * have legacy customisations using QuickFIX dictionaries and want to defer customising using FIX Orchestra
+
+## Project structure
+\-custom-application-and-session-messages : builds custom Application and FIXT1.1 Session using FIX Orchestra classes and packages in a single jar. __NOT__ the recommeded approach, just an example
+
+\-custom-application-messages : builds custom Application classes using FIX Orchestra.
+
+\-custom-legacy-code-application-messages :  builds custom Application classes from a QuickFIX dictionary using the legacy QuickFIX/j code generation.
+
 # Build
 
+## Java Version
+
+Java version is 17 for compatibility with the Spring Boot 3 examples.
+
+## Maven
+
  `mvn clean install -Djdk.xml.xpathExprGrpLimit=1024 -Djdk.xml.xpathExprOpLimit=1024`
+
+Faster without javadoc
+
+`mvn clean install -Djdk.xml.xpathExprGrpLimit=1024 -Djdk.xml.xpathExprOpLimit=1024 -Dmaven.javadoc.skip=true`
