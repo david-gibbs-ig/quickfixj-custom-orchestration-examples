@@ -16,6 +16,7 @@
     <modules>
         <module>using-fixlatest-server</module>
         <module>using-fixlatest-client</module>
-<!--        <module>using-legacy-codegen</module>-->
+        <module>using-legacy-codegen-server</module>
+        <module>using-legacy-codegen-client</module>
     </modules>
 </project>

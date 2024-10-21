@@ -1,6 +1,6 @@
 # Example Applications
 
-The Example applications are trivial and only intended to demonstrate the build and runtime dependencies when using custom protocols.
+The example applications are trivial and only intended to demonstrate the build and runtime dependencies when using custom protocols.
 
 The example applications use  `quickfixj-spring-boot-starter`.
 
