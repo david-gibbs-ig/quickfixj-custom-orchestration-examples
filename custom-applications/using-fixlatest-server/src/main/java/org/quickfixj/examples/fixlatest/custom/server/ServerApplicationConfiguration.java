@@ -13,7 +13,7 @@ public class ServerApplicationConfiguration {
     }
 
     @Bean
-    Application srverApplication(MessageCracker messageCracker) {
+    Application application(MessageCracker messageCracker) {
         return new ServerApplicationAdapter(messageCracker);
     }
 

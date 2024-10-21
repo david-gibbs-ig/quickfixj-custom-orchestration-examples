@@ -3,44 +3,26 @@ spring:
     allow-bean-definition-overriding: true
 
 server:
-  port: 8080
+  port: 8081
 
 management:
   endpoint:
     health:
       show-details: always
-    quickfixjserver:
-      enabled: true
-  health:
-    quickfixjserver:
+    quickfixjclient:
       enabled: true
   endpoints:
     web:
       exposure:
-        include: quickfixjserver,health
-
-logging:
-  group:
-    fix: quickfix.ThreadedSocketAcceptor, quickfixj.msg.incoming, quickfixj.msg,outgoing
-    examples: org.quickfixj.examples
+        include: quickfixjclient,health
 
 app:
   session:
-    sender-comp-id: EXAMPLE-FIXLATEST-ACCEPTOR
-    socket-accept-port: 9881
+    sender-comp-id: EXAMPLE-FIXLATEST-INITIATOR
 
 quickfixj:
-  server:
+  client:
     enabled: true
-    auto-startup: true
-    force-disconnect: false
-    phase: 0
-    jmx-enabled: true
-    concurrent:
-      enabled: true
-      useDefaultExecutorFactory: true
-    message-store-factory: memory
-    log-factory: slf4j
     configString: |
       [default]
       BeginString=FIXT.1.1
@@ -48,7 +30,7 @@ quickfixj:
       UseDataDictionary=Y
       TransportDataDictionary=FIXT11.xml
       AppDataDictionary.FIX.Latest=FIXLatest.xml
-      ConnectionType=acceptor
+      ConnectionType=initiator
       TimeZone=Europe/London
       StartTime=00:00:00
       EndTime=00:00:00
@@ -60,12 +42,13 @@ quickfixj:
       CheckLatency=Y
       HeartBtInt=30
       PersistMessages=N
-      FileLogPath=target/logs-server
+      FileLogPath=target/logs-client
+      SocketConnectHost=localhost
       SenderCompID=${app.session.sender-comp-id}
-      SocketAcceptPort=${app.session.socket-accept-port}
       
       #SSL
       SocketUseSSL=N
-
+  
       [session]
-      TargetCompID=EXAMPLE-FIXLATEST-INITIATOR
+      TargetCompID=EXAMPLE-FIXLATEST-ACCEPTOR
+      SocketConnectPort=9881

@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import quickfix.*;
 import quickfix.field.*;
+import quickfix.fixlatest.BusinessMessageReject;
 import quickfix.fixlatest.ExecutionReport;
 import quickfix.fixlatest.MessageCracker;
 import quickfix.fixlatest.NewOrderSingle;
@@ -36,6 +37,16 @@ public class ServerMessageCracker extends MessageCracker {
         } catch (SessionNotFound e) {
             log.error("SessionNot Found", e);
         }
+    }
+
+    @Override
+    public void onMessage(BusinessMessageReject businessMessageReject, SessionID sessionID)
+            throws FieldNotFound {
+        log.error("Received Business Message Reject from sender [{}]: refMsgType {}, businessRejectReason{}, Text {}",
+                sessionID.getSenderCompID(),
+                businessMessageReject.getRefMsgType().getValue(),
+                businessMessageReject.getBusinessRejectReason().getValue(),
+                businessMessageReject.isSetText() ? businessMessageReject.getText().getValue() : "");
     }
 
     private static ExecutionReport executionReport(NewOrderSingle newOrderSingle) throws FieldNotFound {

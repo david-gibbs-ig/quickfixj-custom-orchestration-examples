@@ -26,6 +26,26 @@ public class ServerApplicationAdapter extends ApplicationAdapter {
     }
 
     @Override
+    public void fromAdmin(Message message, SessionID sessionId) {
+        log.info("fromAdmin: Message={}, SessionId={}", message, sessionId);
+    }
+
+    @Override
+    public void onCreate(SessionID sessionId) {
+        log.info("onCreate: SessionId={}", sessionId);
+    }
+
+    @Override
+    public void toAdmin(Message message, SessionID sessionId) {
+        log.info("toAdmin: Message={}, SessionId={}", message, sessionId);
+    }
+
+    @Override
+    public void toApp(Message message, SessionID sessionId) {
+        log.info("toApp: Message={}, SessionId={}", message, sessionId);
+    }
+
+    @Override
     public void fromApp(Message message, SessionID sessionID)
             throws FieldNotFound, IncorrectTagValue, UnsupportedMessageType {
         this.messageCracker.crack(message, sessionID);

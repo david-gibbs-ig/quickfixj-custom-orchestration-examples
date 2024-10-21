@@ -15,7 +15,7 @@
 
     <modules>
         <module>using-fixlatest-server</module>
-        <!-- module>using-fixlatest-with-session</module>
-        <module>using-legacy-codegen</module -->
+        <module>using-fixlatest-client</module>
+<!--        <module>using-legacy-codegen</module>-->
     </modules>
 </project>
