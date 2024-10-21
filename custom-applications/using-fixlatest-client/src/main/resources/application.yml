@@ -18,7 +18,7 @@ management:
 
 app:
   session:
-    sender-comp-id: EXAMPLE-FIXLATEST-INITIATOR
+    sender-comp-id: INITIATOR
 
 quickfixj:
   client:
@@ -42,7 +42,6 @@ quickfixj:
       CheckLatency=Y
       HeartBtInt=30
       PersistMessages=N
-      FileLogPath=target/logs-client
       SocketConnectHost=localhost
       SenderCompID=${app.session.sender-comp-id}
       
@@ -50,5 +49,5 @@ quickfixj:
       SocketUseSSL=N
   
       [session]
-      TargetCompID=EXAMPLE-FIXLATEST-ACCEPTOR
+      TargetCompID=ACCEPTOR
       SocketConnectPort=9881

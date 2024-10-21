@@ -26,7 +26,7 @@ logging:
 
 app:
   session:
-    sender-comp-id: EXAMPLE-FIXLATEST-ACCEPTOR
+    sender-comp-id: ACCEPTOR
     socket-accept-port: 9881
 
 quickfixj:
@@ -60,7 +60,6 @@ quickfixj:
       CheckLatency=Y
       HeartBtInt=30
       PersistMessages=N
-      FileLogPath=target/logs-server
       SenderCompID=${app.session.sender-comp-id}
       SocketAcceptPort=${app.session.socket-accept-port}
       
@@ -68,4 +67,4 @@ quickfixj:
       SocketUseSSL=N
 
       [session]
-      TargetCompID=EXAMPLE-FIXLATEST-INITIATOR
+      TargetCompID=INITIATOR

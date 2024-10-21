@@ -17,12 +17,12 @@ public class ServerApplicationAdapter extends ApplicationAdapter {
 
     @Override
     public void onLogon(SessionID sessionID) {
-        log.info("logged on sender[{}] -> target[{}]", sessionID.getSenderCompID(), sessionID.getTargetCompID());
+        log.info("logged on [{}] - [{}]", sessionID.getSenderCompID(), sessionID.getTargetCompID());
     }
 
     @Override
     public void onLogout(SessionID sessionID) {
-        log.info("logged out sender[{}] -> target[{}]", sessionID.getSenderCompID(), sessionID.getTargetCompID());
+        log.info("logged out [{}] - [{}]", sessionID.getSenderCompID(), sessionID.getTargetCompID());
     }
 
     @Override

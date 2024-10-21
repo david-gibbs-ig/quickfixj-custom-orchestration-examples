@@ -20,18 +20,15 @@ public class ClientMessageCracker extends MessageCracker {
     public void onMessage(ExecutionReport executionReport, SessionID sessionID)
             throws FieldNotFound {
         Instrument instrumentComponent = executionReport.getInstrumentComponent(); // invariant
-        log.info("Received ExecutionReport from sender [{}]: clOrdID {}, symbol {}, side {}, transactTime {}, ordType {}",
-                sessionID.getSenderCompID(),
+        log.info("Received ExecutionReport from sender [{}]:: clOrdID {}, symbol {}, side {}, transactTime {}, ordType {}, securityIDSource {}, securityID {}",
+                executionReport.getHeader().getString(SenderCompID.FIELD),
                 instrumentComponent.getSymbol().getValue(),
                 executionReport.getClOrdID().getValue(),
                 executionReport.getSide().getValue(),
                 executionReport.getTransactTime().getValue(),
-                executionReport.getOrdType().getValue());
-        if (instrumentComponent.isSetSecurityIDSource()) {
-            log.info("securityIDSource {}, securityID {}",
-                    instrumentComponent.getSecurityIDSource().getValue(),
-                    instrumentComponent.getSecurityID().getValue());
-        }
+                executionReport.getOrdType().getValue(),
+                instrumentComponent.isSetSecurityIDSource() ? instrumentComponent.getSecurityIDSource().getValue() : "",
+                instrumentComponent.isSetSecurityID() ? instrumentComponent.getSecurityID().getValue() : "");
     }
 
     @Override

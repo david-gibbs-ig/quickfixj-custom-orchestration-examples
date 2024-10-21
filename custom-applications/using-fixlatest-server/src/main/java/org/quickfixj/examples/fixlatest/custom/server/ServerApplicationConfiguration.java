@@ -29,9 +29,4 @@ public class ServerApplicationConfiguration {
                 logFactory,
                 messageFactory);
     }
-
-    @Bean
-    public LogFactory serverLogFactory(SessionSettings serverSessionSettings) {
-        return new FileLogFactory(serverSessionSettings);
-    }
 }
