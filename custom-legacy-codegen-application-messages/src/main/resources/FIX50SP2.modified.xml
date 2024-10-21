@@ -5502,7 +5502,7 @@
       <value enum="K" description="ISDA_FPML_PRODUCT_URL"/>
       <value enum="L" description="LETTER_OF_CREDIT"/>
       <value enum="M" description="MARKETPLACE_ASSIGNED_IDENTIFIER"/>
-      <value enum="100" description="EXAMPLE_CUSTOM_VALUE"/><!-- customisation example -->
+      <value enum="100" description="EXAMPLE_CUSTOM_SECURITY_ID_SOURCE"/><!-- customisation example -->
     </field>
     <field number="23" name="IOIID" type="STRING"/>
     <field number="25" name="IOIQltyInd" type="CHAR">

@@ -63,7 +63,6 @@ public class ClientApplicationAdapter implements Application {
     }
 
     private static NewOrderSingle newOrderSingle() {
-
         NewOrderSingle newOrderSingle = new NewOrderSingle();
         newOrderSingle.set(new ClOrdID(UUID.randomUUID().toString()));
         newOrderSingle.set(new OrdType(OrdType.LIMIT));
@@ -72,7 +71,7 @@ public class ClientApplicationAdapter implements Application {
         newOrderSingle.set(new TransactTime(LocalDateTime.now()));
         Instrument instrument = new Instrument();
         instrument.set(new Symbol("EX.AMPLE"));
-        instrument.set(new SecurityIDSource(SecurityIDSource.ISINNUMBER));
+        instrument.set(new SecurityIDSource(SecurityIDSource.EXAMPLE_CUSTOM_SECURITY_ID_SOURCE));
         instrument.set(new SecurityID("202491685"));
         newOrderSingle.set(instrument);
         OrderQtyData orderQtyData = new OrderQtyData();

@@ -1082,6 +1082,12 @@
                         Digital Token Identifier (ISO 24165)</fixr:documentation>
         </fixr:annotation>
       </fixr:code>
+      <fixr:code name="ExampleCustomSecurityIdSource" id="22034" value="100" sort="34">
+        <fixr:annotation>
+            <fixr:documentation purpose="SYNOPSIS">
+                Digital Token Identifier (ISO 24165)</fixr:documentation>
+            </fixr:annotation>
+      </fixr:code>
       <fixr:annotation>
         <fixr:documentation purpose="SYNOPSIS">
                     Identifies class or source of the SecurityID(48) value.</fixr:documentation>
