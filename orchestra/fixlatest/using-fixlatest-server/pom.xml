@@ -3,11 +3,11 @@
 
     <parent>
         <groupId>org.quickfixj.custom.examples</groupId>
-        <artifactId>custom-applications-parent</artifactId>
+        <artifactId>orchestra-fixlatest-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>using-fixlatest-client</artifactId>
+    <artifactId>using-fixlatest-server</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -41,7 +41,7 @@
         </dependency>
         <dependency>
             <groupId>org.quickfixj.custom.examples</groupId>
-            <artifactId>application-messages</artifactId>
+            <artifactId>fixlatest-application-messages</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

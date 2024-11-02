@@ -3,11 +3,11 @@
 
     <parent>
         <groupId>org.quickfixj.custom.examples</groupId>
-        <artifactId>orchestration-examples-parent</artifactId>
+        <artifactId>legacy-codegen-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>legacy-codegen-application-messages</artifactId>
+    <artifactId>legacy-codegen-fix50sp2-application-messages</artifactId>
     <packaging>jar</packaging>
 
     <name>QuickFIX/J custom legacy codegen application messages</name>

@@ -3,20 +3,19 @@
 
     <parent>
         <groupId>org.quickfixj.custom.examples</groupId>
-        <artifactId>orchestration-examples-parent</artifactId>
+        <artifactId>orchestra-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>custom-applications-parent</artifactId>
+    <artifactId>custom-applications-orchestra-fix50sp2-parent</artifactId>
     <packaging>pom</packaging>
 
     <dependencies>
     </dependencies>
 
     <modules>
-        <module>using-fixlatest-server</module>
-        <module>using-fixlatest-client</module>
-        <module>using-legacy-codegen-server</module>
-        <module>using-legacy-codegen-client</module>
+        <module>fix50sp2-application-messages</module>
+<!--        <module>using-fix50sp2-server</module>-->
+<!--        <module>using-fix50sp2-client</module>-->
     </modules>
 </project>

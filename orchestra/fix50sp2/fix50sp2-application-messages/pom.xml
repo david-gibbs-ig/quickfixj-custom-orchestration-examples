@@ -3,11 +3,11 @@
 
     <parent>
         <groupId>org.quickfixj.custom.examples</groupId>
-        <artifactId>orchestration-examples-parent</artifactId>
+        <artifactId>orchestra-fixlatest-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>application-messages</artifactId>
+    <artifactId>fix50sp2-application-messages</artifactId>
     <packaging>jar</packaging>
 
     <name>QuickFIX/J custom application messages</name>
@@ -43,12 +43,12 @@
                         <configuration>
                             <transformationSets>
                                 <transformationSet>
-                                    <dir>../src/main/resources</dir>
+                                    <dir>${project.basedir}/src/main/resources</dir>
                                     <outputDir>${project.build.directory}/generated-resources</outputDir>
                                     <includes>
                                         <include>${orchestra.file}</include>
                                     </includes>
-                                    <stylesheet>${project.basedir}/src/main/xsl/extractSessionLayer.xsl</stylesheet>
+                                    <stylesheet>${project.basedir}/../../src/main/xsl/extractSessionLayer.xsl</stylesheet>
                                 </transformationSet>
                             </transformationSets>
                         </configuration>
@@ -68,8 +68,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <orchestration>${project.build.directory}/generated-resources/${orchestra.file}</orchestration>
-                    <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+                    <orchestration>target/generated-resources/example-custom-orchestra.xml</orchestration>
+                    <outputDirectory>target/generated-sources</outputDirectory>
                     <excludeSession>true</excludeSession>
                     <generateFixt11Package>false</generateFixt11Package>
                 </configuration>
@@ -87,8 +87,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <orchestration>${project.build.directory}/generated-resources/${orchestra.file}</orchestration>
-                    <outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
+                    <orchestration>target/generated-resources/example-custom-orchestra.xml</orchestration>
+                    <outputDirectory>target/generated-resources</outputDirectory>
                 </configuration>
             </plugin>
             <plugin>
@@ -139,7 +139,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                            <outputDirectory>target/classes</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${project.build.directory}/generated-resources</directory>
