@@ -1,9 +1,8 @@
-package org.quickfixj.examples.legacy.custom.client;
+package org.quickfixj.examples.fixlatest.custom.client;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import quickfix.FieldNotFound;
-import quickfix.SessionID;
+import quickfix.*;
 import quickfix.field.*;
 import quickfix.fix50sp2.BusinessMessageReject;
 import quickfix.fix50sp2.ExecutionReport;
@@ -16,7 +15,7 @@ public class ClientMessageCracker extends MessageCracker {
     @Override
     public void onMessage(ExecutionReport executionReport, SessionID sessionID)
             throws FieldNotFound {
-        Instrument instrumentComponent = executionReport.getInstrument(); // invariant
+        Instrument instrumentComponent = executionReport.getInstrumentComponent(); // invariant
         log.info("Received ExecutionReport from sender [{}]:: clOrdID {}, symbol {}, side {}, transactTime {}, ordType {}, securityIDSource {}, securityID {}",
                 executionReport.getHeader().getString(SenderCompID.FIELD),
                 executionReport.getClOrdID().getValue(),

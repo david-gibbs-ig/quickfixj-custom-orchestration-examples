@@ -3,14 +3,14 @@
 
     <parent>
         <groupId>org.quickfixj.custom.examples</groupId>
-        <artifactId>orchestra-fixlatest-parent</artifactId>
+        <artifactId>orchestra-fix50sp2-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>fix50sp2-application-messages</artifactId>
     <packaging>jar</packaging>
 
-    <name>QuickFIX/J custom application messages</name>
+    <name>QuickFIX/J fix50sp2 custom application messages</name>
     <description>Example build of custom FIX application messages</description>
     <url>http://www.quickfixj.org</url>
 
@@ -64,7 +64,7 @@
                         <goals>
                             <goal>codeGeneration</goal>
                         </goals>
-                        <id>fixLatest</id>
+                        <id>fixOrchestraCodeGen</id>
                     </execution>
                 </executions>
                 <configuration>
@@ -83,7 +83,7 @@
                         <goals>
                             <goal>dictionaryGeneration</goal>
                         </goals>
-                        <id>fixLatest</id>
+                        <id>fixDictionary</id>
                     </execution>
                 </executions>
                 <configuration>
@@ -133,7 +133,7 @@
                 <artifactId>maven-resources-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>copy-fixlatest-xml</id>
+                        <id>copy-fix-dictionary-xml</id>
                         <phase>generate-resources</phase>
                         <goals>
                             <goal>copy-resources</goal>
@@ -144,7 +144,7 @@
                                 <resource>
                                     <directory>${project.build.directory}/generated-resources</directory>
                                     <includes>
-                                        <include>FIXLatest.xml</include>
+                                        <include>FIX50SP2.xml</include>
                                     </includes>
                                 </resource>
                             </resources>

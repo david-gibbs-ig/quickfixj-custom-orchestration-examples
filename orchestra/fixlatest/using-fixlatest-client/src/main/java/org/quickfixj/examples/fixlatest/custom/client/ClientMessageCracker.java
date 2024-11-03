@@ -18,8 +18,8 @@ public class ClientMessageCracker extends MessageCracker {
         Instrument instrumentComponent = executionReport.getInstrumentComponent(); // invariant
         log.info("Received ExecutionReport from sender [{}]:: clOrdID {}, symbol {}, side {}, transactTime {}, ordType {}, securityIDSource {}, securityID {}",
                 executionReport.getHeader().getString(SenderCompID.FIELD),
-                instrumentComponent.getSymbol().getValue(),
                 executionReport.getClOrdID().getValue(),
+                instrumentComponent.getSymbol().getValue(),
                 executionReport.getSide().getValue(),
                 executionReport.getTransactTime().getValue(),
                 executionReport.getOrdType().getValue(),

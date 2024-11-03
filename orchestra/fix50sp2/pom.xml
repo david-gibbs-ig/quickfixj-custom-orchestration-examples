@@ -7,7 +7,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>custom-applications-orchestra-fix50sp2-parent</artifactId>
+    <artifactId>orchestra-fix50sp2-parent</artifactId>
     <packaging>pom</packaging>
 
     <dependencies>
@@ -15,7 +15,7 @@
 
     <modules>
         <module>fix50sp2-application-messages</module>
-<!--        <module>using-fix50sp2-server</module>-->
-<!--        <module>using-fix50sp2-client</module>-->
+        <module>using-fix50sp2-server</module>
+        <module>using-fix50sp2-client</module>
     </modules>
 </project>

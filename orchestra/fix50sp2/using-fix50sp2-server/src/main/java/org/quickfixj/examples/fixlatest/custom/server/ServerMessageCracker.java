@@ -4,11 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import quickfix.*;
 import quickfix.field.*;
-import quickfix.fixlatest.BusinessMessageReject;
-import quickfix.fixlatest.ExecutionReport;
-import quickfix.fixlatest.MessageCracker;
-import quickfix.fixlatest.NewOrderSingle;
-import quickfix.fixlatest.component.Instrument;
+import quickfix.fix50sp2.BusinessMessageReject;
+import quickfix.fix50sp2.ExecutionReport;
+import quickfix.fix50sp2.MessageCracker;
+import quickfix.fix50sp2.NewOrderSingle;
+import quickfix.fix50sp2.component.Instrument;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

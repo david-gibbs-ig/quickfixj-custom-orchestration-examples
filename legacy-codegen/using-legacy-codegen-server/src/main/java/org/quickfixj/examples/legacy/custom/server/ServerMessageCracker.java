@@ -22,8 +22,8 @@ public class ServerMessageCracker extends MessageCracker {
         Instrument instrumentComponent = newOrderSingle.getInstrument(); // invariant
         log.info("Received NewOrderSingle from sender [{}]: clOrdID {}, symbol {}, side {}, transactTime {}, ordType {}, securityIDSource {}, securityID {}",
                 newOrderSingle.getHeader().getString(SenderCompID.FIELD),
-                instrumentComponent.getSymbol().getValue(),
                 newOrderSingle.getClOrdID().getValue(),
+                instrumentComponent.getSymbol().getValue(),
                 newOrderSingle.getSide().getValue(),
                 newOrderSingle.getTransactTime().getValue(),
                 newOrderSingle.getOrdType().getValue(),
